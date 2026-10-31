@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+env/
+venv/
+*.bin
+*.pt
+*.pth
+models/checkpoints/
+models/muril_multilabel/*.bin
+.DS_Store

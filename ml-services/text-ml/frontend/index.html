@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIH26093 - AI Text ML Stress & Trauma Assessment System</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js for Risk Radar Visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Top Glassmorphism Navigation Bar -->
+        <header class="top-nav">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">SIH26093 <span class="badge-tag">Text ML Module</span></h1>
+                    <p class="brand-sub">Real-Time Victim Stress & Trauma Assessment System</p>
+                </div>
+            </div>
+
+            <!-- Tab Navigation Links -->
+            <nav class="nav-tabs">
+                <button class="nav-tab active" onclick="switchTab('analyzer')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Live Analyzer
+                </button>
+                <button class="nav-tab" onclick="switchTab('suite')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Test Suite (Cases A–I)
+                </button>
+                <button class="nav-tab" onclick="switchTab('weights')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    Weights & Config
+                </button>
+                <button class="nav-tab" onclick="switchTab('pipeline')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    Ethics & Pipeline Guide
+                </button>
+            </nav>
+
+            <div class="nav-status">
+                <span id="api-pulse" class="pulse-dot offline"></span>
+                <span id="api-status-text" class="status-text">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Global Safety & Ethics Disclaimer -->
+        <div class="safety-banner">
+            <div class="banner-content">
+                <span class="banner-badge">AI DECISION SUPPORT PROTOTYPE</span>
+                <p>This module extracts 10 text vulnerability indicators to support human review workflows. It does <strong>NOT</strong> diagnose PTSD, depression, or medical disorders, nor does it directly calculate SVI.</p>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 1: LIVE ANALYZER ==================== -->
+        <main id="tab-analyzer" class="tab-page active">
+            <div class="dashboard-grid">
+                
+                <!-- Left Input Section -->
+                <div class="grid-panel input-panel">
+                    <div class="panel-header">
+                        <h2>Victim Narrative Input</h2>
+                        <span class="text-counter" id="char-counter">0 characters</span>
+                    </div>
+
+                    <!-- Preset Pills -->
+                    <div class="preset-container">
+                        <span class="preset-title">Test Scenario Presets:</span>
+                        <div class="preset-pills">
+                            <button class="pill" onclick="loadPreset('CASE_A')">⚡ Positive Threat</button>
+                            <button class="pill" onclick="loadPreset('CASE_B')">🛡️ Negated Threat</button>
+                            <button class="pill" onclick="loadPreset('CASE_C')">👨‍👩‍👧 Family Harm</button>
+                            <button class="pill" onclick="loadPreset('CASE_D')">🚨 Immediate Danger</button>
+                            <button class="pill" onclick="loadPreset('CASE_E')">🆘 Self Harm</button>
+                            <button class="pill" onclick="loadPreset('CASE_F')">⚖️ Legal Distress</button>
+                            <button class="pill" onclick="loadPreset('CASE_G')">💥 Multi-Indicator</button>
+                            <button class="pill" onclick="loadPreset('CASE_H')">❓ Reported Question</button>
+                            <button class="pill" onclick="loadPreset('CASE_I')">🚫 Negation + Family</button>
+                            <button class="pill" onclick="loadPreset('CASE_HINGLISH')">🇮🇳 Code-Mixed Indic</button>
+                        </div>
+                    </div>
+
+                    <!-- Main Textarea -->
+                    <div class="textarea-box">
+                        <textarea id="narrative-input" placeholder="Enter victim/complainant narrative statement in English, Hindi, or Romanized Indic text (e.g. 'He threatened me yesterday and said he would hurt my family')..."></textarea>
+                    </div>
+
+                    <!-- Action Control Bar -->
+                    <div class="action-row">
+                        <button id="analyze-btn" class="glow-btn" onclick="analyzeNarrative()">
+                            <span id="btn-icon">⚡</span>
+                            <span id="btn-label">Analyze Text Narrative</span>
+                            <div id="btn-spinner" class="spinner hidden"></div>
+                        </button>
+                        <button class="clear-btn" onclick="clearNarrative()">Clear</button>
+                    </div>
+
+                    <!-- Model Info Box -->
+                    <div class="model-info-box">
+                        <div class="info-item">
+                            <span class="info-label">Base Model:</span>
+                            <span class="info-val">Google MuRIL (google/muril-base-cased)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Task Architecture:</span>
+                            <span class="info-val">10-Output Multi-Label Sigmoid Classifier</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Loss Function:</span>
+                            <span class="info-val">BCEWithLogitsLoss + Class Imbalance pos_weight</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Results Section -->
+                <div class="grid-panel results-panel">
+                    
+                    <!-- Critical Safety Flag Banner -->
+                    <div id="critical-alert-box" class="critical-box hidden">
+                        <div class="critical-header">
+                            <span class="critical-icon">⚠️</span>
+                            <div>
+                                <h3>CRITICAL SAFETY FLAGS TRIGGERED</h3>
+                                <p class="critical-sub">High-severity indicators detected requiring immediate human review workflow</p>
+                            </div>
+                        </div>
+                        <div id="critical-flags-container" class="critical-items"></div>
+                    </div>
+
+                    <!-- Top Score & Radar Grid -->
+                    <div class="score-radar-grid">
+                        <!-- Score Gauge Card -->
+                        <div class="metric-card score-card">
+                            <h3>Normalized Text Score</h3>
+                            <div class="gauge-wrapper">
+                                <svg class="gauge-svg" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                                    <circle id="gauge-bar" class="gauge-fill" cx="60" cy="60" r="50"></circle>
+                                </svg>
+                                <div class="gauge-center">
+                                    <span id="score-number" class="score-num">0.0</span>
+                                    <span class="score-scale">/ 100</span>
+                                </div>
+                            </div>
+                            <span class="score-tag">Decoupled Normalized Weighted Sum</span>
+                        </div>
+
+                        <!-- Risk Radar Chart Card -->
+                        <div class="metric-card radar-card">
+                            <h3>10-Indicator Profile</h3>
+                            <div class="chart-container">
+                                <canvas id="radarChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10 Indicator Cards Grid -->
+                    <div class="indicators-section">
+                        <div class="section-title">
+                            <h3>10 Multi-Label Risk Indicators</h3>
+                            <span class="section-sub">Sigmoid Probabilities (0.00 – 1.00)</span>
+                        </div>
+                        <div id="indicators-grid" class="indicator-cards">
+                            <div class="empty-state">Enter victim statement and click "Analyze Text Narrative" to inspect model predictions.</div>
+                        </div>
+                    </div>
+
+                    <!-- Extracted Text Evidence Section -->
+                    <div class="evidence-section">
+                        <div class="section-title">
+                            <h3>Extracted Text Evidence Spans</h3>
+                            <span class="section-sub">Non-hallucinating verbatim sentence spans mapped to detected indicators</span>
+                        </div>
+                        <div id="evidence-container" class="evidence-box">
+                            <div class="empty-state">No active evidence spans mapped yet.</div>
+                        </div>
+                    </div>
+
+                    <!-- Export Report Action -->
+                    <div class="export-bar">
+                        <button class="export-btn" onclick="exportAnalysisJSON()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Export Assessment Report (JSON)
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- ==================== TAB 2: BATCH TEST SUITE ==================== -->
+        <main id="tab-suite" class="tab-page hidden">
+            <div class="suite-panel grid-panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Context & Negation Test Suite (Cases A – I)</h2>
+                        <p class="panel-sub">Automated validation testing positive threats, negated threats, family harm, immediate danger, self-harm, legal distress, questions, and code-mixed text.</p>
+                    </div>
+                    <button class="glow-btn" onclick="runBatchSuite()">
+                        ▶ Run All 9 Test Cases
+                    </button>
+                </div>
+
+                <div class="suite-table-wrapper">
+                    <table class="suite-table">
+                        <thead>
+                            <tr>
+                                <th>Test ID</th>
+                                <th>Scenario Name</th>
+                                <th>Input Narrative</th>
+                                <th>Text Score</th>
+                                <th>Active Indicators (≥ 0.50)</th>
+                                <th>Critical Flags</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody id="suite-table-body">
+                            <tr>
+                                <td colspan="7" class="empty-state">Click "Run All 9 Test Cases" to evaluate the test suite against the live model.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- ==================== TAB 3: WEIGHTS & CONFIG ==================== -->
+        <main id="tab-weights" class="tab-page hidden">
+            <div class="weights-grid">
+                <div class="grid-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Text Score Weights Configurator</h2>
+                            <p class="panel-sub">Adjust prototype indicator weights $w_1 \dots w_{10}$ used by the decoupled scoring engine to normalize the Text Score (0–100).</p>
+                        </div>
+                        <button class="secondary-btn" onclick="resetWeights()">Reset to Defaults</button>
+                    </div>
+
+                    <div id="weights-sliders" class="sliders-list"></div>
+                    <div class="disclaimer-callout">
+                        ⚠️ <strong>Domain Validation Note:</strong> Prototype weights are configured for demonstration and must undergo domain expert (clinical/legal) validation before real-world deployment.
+                    </div>
+                </div>
+
+                <div class="grid-panel">
+                    <div class="panel-header">
+                        <h2>Critical Safety Thresholds</h2>
+                        <p class="panel-sub">Independent probability trigger thresholds for emergency safety flags</p>
+                    </div>
+
+                    <div id="thresholds-list" class="thresholds-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ==================== TAB 4: ETHICS & PIPELINE GUIDE ==================== -->
+        <main id="tab-pipeline" class="tab-page hidden">
+            <div class="grid-panel guide-panel">
+                <h2>Architecture & Real-World Dataset Pipeline Guide</h2>
+                
+                <div class="guide-cards">
+                    <div class="guide-card">
+                        <h3>1. Model Architecture (Google MuRIL)</h3>
+                        <p>We use <code>google/muril-base-cased</code> fine-tuned with a 10-class Linear Head and independent Sigmoid outputs trained via <code>BCEWithLogitsLoss</code>. Softmax is strictly avoided so multiple indicators can be simultaneously active.</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3>2. Decoupled Text Score</h3>
+                        <p>MuRIL predicts 10 raw indicator probabilities. The 0–100 Text Score is computed separately by a normalized weighted sum engine, ensuring model inference remains independent of scoring policy.</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3>3. Replacing Dev Data with Real Data</h3>
+                        <p>To train on an approved anonymized dataset, format your CSV with columns: <code>case_id,text,violence,sexual_violence,threat_intimidation,immediate_danger,social_isolation,displacement,family_harm,self_harm_suicidal_ideation,depression_related,legal_distress</code> and re-run <code>python -m src.train</code>.</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3>4. Switching Baseline to IndicBERT</h3>
+                        <p>To test IndicBERT, update <code>model_name_or_path = "ai4bharat/indic-bert"</code> in <code>src/config.py</code> and re-train.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "CASE_A",
+    "name": "Positive threat",
+    "text": "He threatened me yesterday.",
+    "expected_high": ["threat_intimidation"],
+    "expected_low": ["violence", "sexual_violence", "immediate_danger", "self_harm_suicidal_ideation"]
+  },
+  {
+    "id": "CASE_B",
+    "name": "Negated threat",
+    "text": "He did not threaten me.",
+    "expected_low": ["threat_intimidation", "violence", "immediate_danger"]
+  },
+  {
+    "id": "CASE_C",
+    "name": "Family threat",
+    "text": "He threatened to hurt my children.",
+    "expected_high": ["threat_intimidation", "family_harm"]
+  },
+  {
+    "id": "CASE_D",
+    "name": "Immediate danger",
+    "text": "He is outside my house right now and I am scared he will attack me.",
+    "expected_high": ["immediate_danger", "threat_intimidation"]
+  },
+  {
+    "id": "CASE_E",
+    "name": "Self-harm",
+    "text": "I feel like ending my life.",
+    "expected_high": ["self_harm_suicidal_ideation", "depression_related"]
+  },
+  {
+    "id": "CASE_F",
+    "name": "Legal distress",
+    "text": "I have been going to court for months and I feel helpless because the case is not progressing.",
+    "expected_high": ["legal_distress", "depression_related"]
+  },
+  {
+    "id": "CASE_G",
+    "name": "Multiple indicators",
+    "text": "He threatened me, hurt my brother, and now I am afraid to return home.",
+    "expected_high": ["threat_intimidation", "family_harm", "displacement"]
+  },
+  {
+    "id": "CASE_H",
+    "name": "Reported question",
+    "text": "The police asked me whether he threatened me.",
+    "expected_low": ["threat_intimidation", "violence", "immediate_danger"]
+  },
+  {
+    "id": "CASE_I",
+    "name": "Negation + family",
+    "text": "He never threatened my family.",
+    "expected_low": ["threat_intimidation", "family_harm"]
+  }
+]

@@ -1,0 +1,31 @@
+case_id,text,violence,sexual_violence,threat_intimidation,immediate_danger,social_isolation,displacement,family_harm,self_harm_suicidal_ideation,depression_related,legal_distress
+CASE_001,"He threatened me yesterday and said he would break my legs.",0,0,1,0,0,0,0,0,0,0
+CASE_002,"He did not threaten me, we just had a verbal disagreement.",0,0,0,0,0,0,0,0,0,0
+CASE_003,"He threatened to hurt my children if I talked to anyone.",0,0,1,1,0,0,1,0,0,0
+CASE_004,"He is standing outside my house right now pounding on the door and threatening to kill me.",1,0,1,1,0,0,0,0,0,0
+CASE_005,"I feel like ending my life because I cannot bear this suffering anymore.",0,0,0,0,0,0,0,1,1,0
+CASE_006,"I have been going to court for eight months and feel completely helpless because the case is not moving forward.",0,0,0,0,0,0,0,0,1,1
+CASE_007,"He assaulted me, threatened my brother, and now we are afraid to go back to our home.",1,0,1,1,0,1,1,0,0,0
+CASE_008,"The police officer asked me whether he threatened me or harmed me.",0,0,0,0,0,0,0,0,0,0
+CASE_009,"He never threatened my family or tried to hurt them.",0,0,0,0,0,0,0,0,0,0
+CASE_010,"Usne mujhe dhamki di ki agar maine police ko bataya toh wo mere ghar waalon ko maarega.",0,0,1,1,0,0,1,0,0,0
+CASE_011,"I am locked out of my house and forced to sleep on the street after he threw me out.",0,0,0,1,1,1,0,0,0,0
+CASE_012,"My husband physically beat me severely last night leaving bruises all over my arms.",1,0,0,0,0,0,0,0,0,0
+CASE_013,"He sexually assaulted me inside his office after locking the door.",1,1,0,0,0,0,0,0,0,0
+CASE_014,"Nobody speaks to me anymore, my family cut off all ties and I am completely isolated.",0,0,0,0,1,0,0,0,1,0
+CASE_015,"I am afraid he might threaten me if he finds out where I am staying.",0,0,0,0,0,0,0,0,0,0
+CASE_016,"He slapped me and said he will come back tonight to finish the job.",1,0,1,1,0,0,0,0,0,0
+CASE_017,"I cannot sleep at night, I constantly cry and feel hopeless every day.",0,0,0,0,0,0,0,0,1,0
+CASE_018,"The lawyer demanded more money and legal documents are missing, leaving me in total distress.",0,0,0,0,0,0,0,0,0,1
+CASE_019,"He threatened my mother and told her he would burn our shop down.",0,0,1,0,0,0,1,0,0,0
+CASE_020,"I have nowhere to go and no family support after being forced out of my town.",0,0,0,0,1,1,0,0,1,0
+CASE_021,"He did not physically touch me or threaten me, but he took all my money.",0,0,0,0,0,0,0,0,0,0
+CASE_022,"I am thinking of harming myself because no one believes what happened to me.",0,0,0,0,1,0,0,1,1,0
+CASE_023,"He broke into my room right now, I am hiding under the bed and need urgent help.",1,0,0,1,0,0,0,0,0,0
+CASE_024,"Wo roz mujhe maarta hai aur kehta hai ki wo mujhe jaan se maar dega.",1,0,1,1,0,0,0,0,0,0
+CASE_025,"The social worker asked if I was experiencing any family violence or legal trouble.",0,0,0,0,0,0,0,0,0,0
+CASE_026,"He threatened to ruin my reputation, but he did not threaten physical violence.",0,0,1,0,0,0,0,0,0,0
+CASE_027,"I was forced to leave my hometown after receiving continuous death threats.",0,0,1,0,0,1,0,0,0,0
+CASE_028,"My uncle tried to sexually molest me when I was alone at home.",1,1,0,0,0,0,1,0,0,0
+CASE_029,"I feel depressed and hopeless, but I am not suicidal.",0,0,0,0,0,0,0,0,1,0
+CASE_030,"Court hearings keep getting postponed and I cannot afford legal fees anymore.",0,0,0,0,0,0,0,0,0,1

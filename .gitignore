@@ -1,0 +1,10 @@
+.env
+*.log
+target/
+node_modules/
+dist/
+__pycache__/
+*.bin
+*.pt
+*.onnx
+.DS_Store

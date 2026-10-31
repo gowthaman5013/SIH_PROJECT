@@ -1,0 +1,6 @@
+case_id,text,violence,sexual_violence,threat_intimidation,immediate_danger,social_isolation,displacement,family_harm,self_harm_suicidal_ideation,depression_related,legal_distress
+CASE_001,He threatened me yesterday and said he would break my legs.,0,0,1,0,0,0,0,0,0,0
+CASE_011,I am locked out of my house and forced to sleep on the street after he threw me out.,0,0,0,1,1,1,0,0,0,0
+CASE_014,"Nobody speaks to me anymore, my family cut off all ties and I am completely isolated.",0,0,0,0,1,0,0,0,1,0
+CASE_021,"He did not physically touch me or threaten me, but he took all my money.",0,0,0,0,0,0,0,0,0,0
+CASE_023,"He broke into my room right now, I am hiding under the bed and need urgent help.",1,0,0,1,0,0,0,0,0,0

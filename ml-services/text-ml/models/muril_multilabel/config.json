@@ -1,0 +1,19 @@
+{
+  "model_name": "google/muril-base-cased",
+  "num_labels": 10,
+  "indicator_labels": [
+    "violence",
+    "sexual_violence",
+    "threat_intimidation",
+    "immediate_danger",
+    "social_isolation",
+    "displacement",
+    "family_harm",
+    "self_harm_suicidal_ideation",
+    "depression_related",
+    "legal_distress"
+  ],
+  "max_length": 256,
+  "best_val_macro_f1": 0.1476,
+  "threshold": 0.5
+}

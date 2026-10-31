@@ -1,0 +1,7 @@
+case_id,text,violence,sexual_violence,threat_intimidation,immediate_danger,social_isolation,displacement,family_harm,self_harm_suicidal_ideation,depression_related,legal_distress
+CASE_009,He never threatened my family or tried to hurt them.,0,0,0,0,0,0,0,0,0,0
+CASE_010,Usne mujhe dhamki di ki agar maine police ko bataya toh wo mere ghar waalon ko maarega.,0,0,1,1,0,0,1,0,0,0
+CASE_016,He slapped me and said he will come back tonight to finish the job.,1,0,1,1,0,0,0,0,0,0
+CASE_018,"The lawyer demanded more money and legal documents are missing, leaving me in total distress.",0,0,0,0,0,0,0,0,0,1
+CASE_024,Wo roz mujhe maarta hai aur kehta hai ki wo mujhe jaan se maar dega.,1,0,1,1,0,0,0,0,0,0
+CASE_028,My uncle tried to sexually molest me when I was alone at home.,1,1,0,0,0,0,1,0,0,0
